@@ -37,7 +37,7 @@ public class Player : MonoBehaviour
                 transform.position = new Vector2(transform.position.x, -4);
             }
         
-            if (Input.GetKeyDown(KeyCode.J))
+            if (Input.GetKeyDown(KeyCode.J) && !lanzado)
         {
             rayo.GetComponent<GenerateRayo>().GenerarRayo();
             StartCoroutine(WaitoLAnzado());
