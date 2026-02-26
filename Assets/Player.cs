@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public GameObject rayo;
 
+    bool lanzado = false;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -38,6 +40,14 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.J))
         {
             rayo.GetComponent<GenerateRayo>().GenerarRayo();
+            StartCoroutine(WaitoLAnzado());
         }
+    }
+
+    IEnumerator WaitoLAnzado()
+    {
+        lanzado = true;
+        yield return new WaitForSeconds(1f);
+        lanzado = false;
     }
 }
